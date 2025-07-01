@@ -48,10 +48,10 @@ jobs:
         id: push
         uses: docker/build-push-action@v3
         with:
-          context: images/redmine
+          context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          file: images/redmine/Dockerfile
+          file: ./Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
           tags: ghcr.io/${{ github.repository }}:${{ steps.calver.outputs.release }},ghcr.io/${{ github.repository }}:latest
 
